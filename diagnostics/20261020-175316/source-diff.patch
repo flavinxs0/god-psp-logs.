@@ -1,0 +1,148 @@
+diff --git a/runtime/rt_android.c b/runtime/rt_android.c
+index ad0fc06..ffc12cb 100644
+--- a/runtime/rt_android.c
++++ b/runtime/rt_android.c
+@@ -1,3 +1,6 @@
++#include <SDL3/SDL.h>
++#include <stdio.h>
++static void gow_log(void *u, int c, SDL_LogPriority p, const char *m) { (void)u; fprintf(stderr, "[sdl %d/%d] %s\n", c, (int)p, m); }
+ #define _GNU_SOURCE
+ #include <SDL3/SDL.h>
+ #include <dlfcn.h>
+@@ -7,6 +10,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <ucontext.h>
++#include <pthread.h>
+ #include <unistd.h>
+ 
+ extern int gow_main(int argc, char **argv);
+@@ -59,6 +63,40 @@ static void install_handlers(void) {
+     for (unsigned i = 0; i < sizeof sigs / sizeof *sigs; i++) sigaction(sigs[i], &sa, NULL);
+ }
+ 
++extern void *rt_fiber_main_parked_sp(void);
++static uintptr_t g_lo, g_hi;
++
++__asm__(
++    ".text\n"
++    ".align 4\n"
++    ".global gow_call_on_stack\n"
++    ".type gow_call_on_stack, %function\n"
++    "gow_call_on_stack:\n"
++    "    stp x29, x30, [sp, #-16]!\n"
++    "    mov x29, sp\n"
++    "    mov sp, x0\n"
++    "    mov x0, x2\n"
++    "    blr x1\n"
++    "    mov sp, x29\n"
++    "    ldp x29, x30, [sp], #16\n"
++    "    ret\n"
++);
++void gow_call_on_stack(void *newsp, void (*fn)(void *), void *arg);
++
++static void on_host(void (*fn)(void *), void *arg) {
++    uintptr_t sp;
++    __asm__ volatile("mov %0, sp" : "=r"(sp));
++    uintptr_t parked = (uintptr_t)rt_fiber_main_parked_sp();
++    if (!parked || parked < g_lo || parked >= g_hi || (sp >= g_lo && sp < g_hi)) { fn(arg); return; }
++    gow_call_on_stack((void *)((parked - 1024) & ~(uintptr_t)15), fn, arg);
++}
++
++typedef struct { SDL_Event *e; Sint32 t; bool r; } hostev_t;
++static void poll_fn(void *a) { hostev_t *h = (hostev_t *)a; h->r = SDL_PollEvent(h->e); }
++static void wait_fn(void *a) { hostev_t *h = (hostev_t *)a; h->r = SDL_WaitEventTimeout(h->e, h->t); }
++bool gow_host_poll(SDL_Event *e) { hostev_t h = { e, 0, false }; on_host(poll_fn, &h); return h.r; }
++bool gow_host_wait(SDL_Event *e, Sint32 t) { hostev_t h = { e, t, false }; on_host(wait_fn, &h); return h.r; }
++
+ __attribute__((visibility("default")))
+ int SDL_main(int argc, char **argv) {
+     (void)argc; (void)argv;
+@@ -69,13 +107,51 @@ int SDL_main(int argc, char **argv) {
+     snprintf(disc, sizeof disc, "%s/game.iso", base);
+     snprintf(ms0, sizeof ms0, "%s/ms0", base);
+     snprintf(logp, sizeof logp, "%s/log.txt", base);
++    {
++        static char lcp[600];
++        snprintf(lcp, sizeof lcp, "%s/logcat_prev.txt", base);
++        FILE *o = fopen(lcp, "w");
++        FILE *pp = popen("logcat -d -t 800 '*:E' 2>&1", "r");
++        if (o && pp) { char b[512]; while (fgets(b, sizeof b, pp)) fputs(b, o); }
++        if (pp) pclose(pp);
++        if (o) fclose(o);
++    }
+     freopen(logp, "w", stderr);
+     setvbuf(stderr, NULL, _IONBF, 0);
++    {
++        pthread_attr_t at;
++        void *addr = NULL;
++        size_t sz = 0;
++        if (pthread_getattr_np(pthread_self(), &at) == 0) {
++            pthread_attr_getstack(&at, &addr, &sz);
++            pthread_attr_destroy(&at);
++        }
++        g_lo = (uintptr_t)addr;
++        g_hi = g_lo + sz;
++        fprintf(stderr, "rt_android: pilha real %p..%p\n", addr, (void *)g_hi);
++    }
+     install_handlers();
+     atexit(on_exit_log);
+     char *args[] = { "gow", "--image", image, "--boot", "--disc", disc,
+-                     "--ms0", ms0, "--window", "--fullscreen", "--renderer", "soft" };
+-    int r = gow_main((int)(sizeof args / sizeof *args), args);
++                     "--ms0", ms0, "--window", "--fullscreen", "--renderer", "gpu" };
++    char *av[64];
++    int ac = 0;
++    for (unsigned i = 0; i < sizeof args / sizeof *args; i++) av[ac++] = args[i];
++    static char extra[2048];
++    char ap[600];
++    snprintf(ap, sizeof ap, "%s/args.txt", base);
++    FILE *af = fopen(ap, "r");
++    if (af) {
++        size_t n = fread(extra, 1, sizeof extra - 1, af);
++        extra[n] = 0;
++        fclose(af);
++        for (char *t = strtok(extra, " \t\r\n"); t && ac < 63; t = strtok(NULL, " \t\r\n")) av[ac++] = t;
++    }
++    av[ac] = NULL;
++    for (int i = 0; i < ac; i++) fprintf(stderr, "arg[%d]=%s\n", i, av[i]);
++    SDL_SetLogPriorities(SDL_LOG_PRIORITY_VERBOSE);
++    SDL_SetLogOutputFunction(gow_log, NULL);
++    int r = gow_main(ac, av);
+     fprintf(stderr, "rt_android: gow_main retornou %d\n", r);
+     return r;
+ }
+diff --git a/runtime/rt_fiber.c b/runtime/rt_fiber.c
+index 30c9127..a47cd2f 100644
+--- a/runtime/rt_fiber.c
++++ b/runtime/rt_fiber.c
+@@ -108,8 +108,13 @@ static void fiber_entry(RtFiber *f) {
+     abort();
+ }
+ 
++static RtFiber *g_main;
++void *rt_fiber_main_parked_sp(void) { return g_main ? g_main->sp : NULL; }
++
+ RtFiber *rt_fiber_init_main(void) {
+-    return (RtFiber *)calloc(1, sizeof(RtFiber));
++    RtFiber *f = (RtFiber *)calloc(1, sizeof(RtFiber));
++    if (!g_main) g_main = f;
++    return f;
+ }
+ 
+ RtFiber *rt_fiber_create(size_t stack_size, RtFiberProc proc, void *arg) {
+diff --git a/runtime/rt_host.c b/runtime/rt_host.c
+index 405be86..0fda7cc 100644
+--- a/runtime/rt_host.c
++++ b/runtime/rt_host.c
+@@ -295,6 +295,10 @@ uint32_t rt_host_buttons(uint64_t frame, uint64_t now_us, uint8_t *lx, uint8_t *
+ #ifdef __ANDROID__
+ #define SDL_HideCursor() true
+ #define SDL_ShowCursor() true
++bool gow_host_poll(SDL_Event *e);
++bool gow_host_wait(SDL_Event *e, Sint32 t);
++#define SDL_PollEvent(e) gow_host_poll(e)
++#define SDL_WaitEventTimeout(e, t) gow_host_wait(e, t)
+ #define SDL_SetWindowFullscreen(w, f) true
+ #endif
+ static inline bool gow_set_title(SDL_Window *w, const char *t) {

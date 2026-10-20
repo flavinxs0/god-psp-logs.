@@ -1,0 +1,23 @@
+rt_android: pilha real 0x7244021000..0x72441266f0
+arg[0]=gow
+arg[1]=--image
+arg[2]=/storage/emulated/0/Android/data/org.gow.shell/files/image.bin
+arg[3]=--boot
+arg[4]=--disc
+arg[5]=/storage/emulated/0/Android/data/org.gow.shell/files/game.iso
+arg[6]=--ms0
+arg[7]=/storage/emulated/0/Android/data/org.gow.shell/files/ms0
+arg[8]=--window
+arg[9]=--fullscreen
+arg[10]=--renderer
+arg[11]=gpu
+arg[12]=--renderer
+arg[13]=gpu
+[sdl 3/4] App name: God of War PSP native port
+[sdl 3/4] App version: <unspecified>
+[sdl 3/4] App ID: <unspecified>
+[sdl 3/4] SDL revision: 
+[sdl 3/3] SDL chose video backend 'android'
+[sdl 9/5] Vulkan: Failed to determine a suitable physical device
+[gpu] SDL_CreateGPUDevice: No supported SDL_GPU backend found!
+rt_android: gow_main retornou 1

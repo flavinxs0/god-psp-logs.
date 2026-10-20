@@ -1,0 +1,14 @@
+Data UTC: 20261020-175316
+Android: 15
+Modelo: moto g35 5G
+
+== Estado do projeto ==
+ M runtime/rt_android.c
+ M runtime/rt_fiber.c
+ M runtime/rt_host.c
+
+== Configuração SDL/GPU ==
+GAME:STRING=UCUS98653_full
+GOW_ANDROID:BOOL=ON
+GOW_SDL_SO:FILEPATH=/data/data/com.termux/files/home/sdlpack/libSDL3.so
+GOW_WINDOW:BOOL=ON
