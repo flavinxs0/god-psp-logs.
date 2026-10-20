@@ -1,0 +1,402 @@
+--------- beginning of crash
+10-20 00:54:29.318 25512 25551 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 25551 (SDLThread), pid 25512 (SDLActivity)
+10-20 00:54:30.009 25582 25582 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-20 00:54:30.009 25582 25582 F DEBUG   : Build fingerprint: 'motorola/manila_gn/manila:15/VUOAS35.116-151-3/07db47:user/release-keys'
+10-20 00:54:30.009 25582 25582 F DEBUG   : Revision: '0'
+10-20 00:54:30.009 25582 25582 F DEBUG   : ABI: 'arm64'
+10-20 00:54:30.009 25582 25582 F DEBUG   : Timestamp: 2026-10-20 00:54:29.436369578-0300
+10-20 00:54:30.009 25582 25582 F DEBUG   : Process uptime: 4s
+10-20 00:54:30.009 25582 25582 F DEBUG   : Cmdline: org.gow.shell
+10-20 00:54:30.009 25582 25582 F DEBUG   : pid: 25512, tid: 25551, name: SDLThread  >>> org.gow.shell <<<
+10-20 00:54:30.009 25582 25582 F DEBUG   : uid: 10035
+10-20 00:54:30.009 25582 25582 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+10-20 00:54:30.009 25582 25582 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-20 00:54:30.009 25582 25582 F DEBUG   : Abort message: 'JNI DETECTED ERROR IN APPLICATION: JNI NewStringUTF called with pending exception java.lang.StackOverflowError: stack size 1037KB
+10-20 00:54:30.009 25582 25582 F DEBUG   :   at int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object) (SDLActivity.java:-2)
+10-20 00:54:30.009 25582 25582 F DEBUG   :   at void org.libsdl.app.SDLActivity.main() (SDLActivity.java:260)
+10-20 00:54:30.009 25582 25582 F DEBUG   :   at void org.libsdl.app.SDLMain.run() (SDLActivity.java:2174)
+10-20 00:54:30.009 25582 25582 F DEBUG   :   at void java.lang.Thread.run() (Thread.java:1571)
+10-20 00:54:30.009 25582 25582 F DEBUG   : 
+10-20 00:54:30.009 25582 25582 F DEBUG   :     in call to NewStringUTF
+10-20 00:54:30.009 25582 25582 F DEBUG   :     from int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object)'
+10-20 00:54:30.009 25582 25582 F DEBUG   :     x0  0000000000000000  x1  00000000000063cf  x2  0000000000000006  x3  000000718d8f50d0
+10-20 00:54:30.010 25582 25582 F DEBUG   :     x4  5151441f43445342  x5  5151441f43445342  x6  5151441f43445342  x7  7f7f7f7f7f7f7f7f
+10-20 00:54:30.010 25582 25582 F DEBUG   :     x8  00000000000000f0  x9  000000758bb213e8  x10 0000000000000001  x11 000000758bb726b0
+10-20 00:54:30.010 25582 25582 F DEBUG   :     x12 000000718d8f3f60  x13 00000000000002bf  x14 000000718d8f3f90  x15 0000009edb0d0ea8
+10-20 00:54:30.010 25582 25582 F DEBUG   :     x16 000000758bbdcfd0  x17 000000758bbc6180  x18 0000007244e30000  x19 00000000000063a8
+10-20 00:54:30.010 25582 25582 F DEBUG   :     x20 00000000000063cf  x21 00000000ffffffff  x22 00000072efa0e000  x23 00000072efa0f1b0
+10-20 00:54:30.010 25582 25582 F DEBUG   :     x24 00000072efa0e000  x25 0000000000000000  x26 b400007470651a90  x27 b4000073b0516c30
+10-20 00:54:30.010 25582 25582 F DEBUG   :     x28 b4000073b0516c30  x29 000000718d8f5150
+10-20 00:54:30.010 25582 25582 F DEBUG   :     lr  000000758bb5ba18  sp  000000718d8f50b0  pc  000000758bb5ba44  pst 0000000000001000
+10-20 00:54:30.010 25582 25582 F DEBUG   : 33 total frames
+10-20 00:54:30.010 25582 25582 F DEBUG   : backtrace:
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #00 pc 000000000005da44  /apex/com.android.runtime/lib64/bionic/libc.so (abort+164) (BuildId: d741576d5b736d0ff0fa707a16618aac)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #01 pc 0000000000953888  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+616) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #02 pc 0000000000016438  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+84) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #03 pc 0000000000015b78  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+556) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #04 pc 0000000000547dac  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbort(char const*, char const*)+1752) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #05 pc 00000000008871e0  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbortV(char const*, char const*, std::__va_list)+108) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #06 pc 000000000041cb2c  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::AbortF(char const*, ...) (.__uniq.99033978352804627313491551960229047428)+144) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #07 pc 000000000041dd70  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::Check(art::ScopedObjectAccess&, bool, char const*, art::(anonymous namespace)::JniValueType*) (.__uniq.99033978352804627313491551960229047428)+4632) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #08 pc 00000000006561a8  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::NewStringUTF(_JNIEnv*, char const*) (.__uniq.99033978352804627313491551960229047428.llvm.2767055871950999953)+164) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #09 pc 00000000000db724  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #10 pc 0000000000304ab0  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #11 pc 00000000002e9290  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (SDL_SetWindowTitle+472) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #12 pc 00000000002817d8  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (rt_host_present+420)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #13 pc 000000000027ee34  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (hle_DisplaySetFrameBuf+224)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #14 pc 000000000027e978  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (rt_hle+336)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #15 pc 00000000002e63c0  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0881B94C+360)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #16 pc 00000000008dd2ac  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A25A70+108)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #17 pc 00000000008e0480  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A26F1C+384)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #18 pc 00000000008dcda8  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A258A4+124)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #19 pc 00000000008dea94  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A261A0+1000)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #20 pc 00000000008a2584  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A13524+136)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #21 pc 00000000008dc7fc  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A25568+1156)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #22 pc 0000000000742f90  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0899AA88+488)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #23 pc 00000000002edc74  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0881E138+332)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #24 pc 00000000002eeaa8  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0881EABC+544)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #25 pc 00000000002ed81c  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0881DFFC+344)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #26 pc 00000000004dbd24  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_088C3798+432)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #27 pc 000000000029f738  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08804000+732)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #28 pc 00000000002a87d4  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0880A4D0+336)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #29 pc 00000000002a8640  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08807CB8+2044)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #30 pc 000000000028ff88  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (thread_main+24)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #31 pc 0000000000264dd0  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (fiber_entry+12)
+10-20 00:54:30.010 25582 25582 F DEBUG   :       #32 pc 0000000000264c54  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (rt_fiber_tramp_a64+4)
+10-20 00:54:35.908 25623 25656 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 25656 (SDLThread), pid 25623 (SDLActivity)
+10-20 00:54:36.209 25805 25805 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-20 00:54:36.209 25805 25805 F DEBUG   : Build fingerprint: 'motorola/manila_gn/manila:15/VUOAS35.116-151-3/07db47:user/release-keys'
+10-20 00:54:36.209 25805 25805 F DEBUG   : Revision: '0'
+10-20 00:54:36.209 25805 25805 F DEBUG   : ABI: 'arm64'
+10-20 00:54:36.209 25805 25805 F DEBUG   : Timestamp: 2026-10-20 00:54:35.978507766-0300
+10-20 00:54:36.209 25805 25805 F DEBUG   : Process uptime: 3s
+10-20 00:54:36.209 25805 25805 F DEBUG   : Cmdline: org.gow.shell
+10-20 00:54:36.209 25805 25805 F DEBUG   : pid: 25623, tid: 25656, name: SDLThread  >>> org.gow.shell <<<
+10-20 00:54:36.209 25805 25805 F DEBUG   : uid: 10035
+10-20 00:54:36.209 25805 25805 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+10-20 00:54:36.209 25805 25805 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-20 00:54:36.209 25805 25805 F DEBUG   : Abort message: 'JNI DETECTED ERROR IN APPLICATION: JNI NewStringUTF called with pending exception java.lang.StackOverflowError: stack size 1037KB
+10-20 00:54:36.209 25805 25805 F DEBUG   :   at int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object) (SDLActivity.java:-2)
+10-20 00:54:36.209 25805 25805 F DEBUG   :   at void org.libsdl.app.SDLActivity.main() (SDLActivity.java:260)
+10-20 00:54:36.209 25805 25805 F DEBUG   :   at void org.libsdl.app.SDLMain.run() (SDLActivity.java:2174)
+10-20 00:54:36.209 25805 25805 F DEBUG   :   at void java.lang.Thread.run() (Thread.java:1571)
+10-20 00:54:36.209 25805 25805 F DEBUG   : 
+10-20 00:54:36.209 25805 25805 F DEBUG   :     in call to NewStringUTF
+10-20 00:54:36.209 25805 25805 F DEBUG   :     from int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object)'
+10-20 00:54:36.209 25805 25805 F DEBUG   :     x0  0000000000000000  x1  0000000000006438  x2  0000000000000006  x3  000000718bc060d0
+10-20 00:54:36.209 25805 25805 F DEBUG   :     x4  5151441f43445342  x5  5151441f43445342  x6  5151441f43445342  x7  7f7f7f7f7f7f7f7f
+10-20 00:54:36.209 25805 25805 F DEBUG   :     x8  00000000000000f0  x9  000000758bb213e8  x10 0000000000000001  x11 000000758bb726b0
+10-20 00:54:36.209 25805 25805 F DEBUG   :     x12 000000718bc04f60  x13 00000000000002bf  x14 000000718bc04f90  x15 0000009ee5487301
+10-20 00:54:36.209 25805 25805 F DEBUG   :     x16 000000758bbdcfd0  x17 000000758bbc6180  x18 0000007242668000  x19 0000000000006417
+10-20 00:54:36.209 25805 25805 F DEBUG   :     x20 0000000000006438  x21 00000000ffffffff  x22 00000072efa0e000  x23 00000072efa0f1b0
+10-20 00:54:36.209 25805 25805 F DEBUG   :     x24 00000072efa0e000  x25 0000000000000000  x26 b400007470656e00  x27 b4000073b0525990
+10-20 00:54:36.209 25805 25805 F DEBUG   :     x28 b4000073b0525990  x29 000000718bc06150
+10-20 00:54:36.209 25805 25805 F DEBUG   :     lr  000000758bb5ba18  sp  000000718bc060b0  pc  000000758bb5ba44  pst 0000000000001000
+10-20 00:54:36.209 25805 25805 F DEBUG   : 33 total frames
+10-20 00:54:36.209 25805 25805 F DEBUG   : backtrace:
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #00 pc 000000000005da44  /apex/com.android.runtime/lib64/bionic/libc.so (abort+164) (BuildId: d741576d5b736d0ff0fa707a16618aac)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #01 pc 0000000000953888  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+616) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #02 pc 0000000000016438  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+84) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #03 pc 0000000000015b78  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+556) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #04 pc 0000000000547dac  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbort(char const*, char const*)+1752) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #05 pc 00000000008871e0  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbortV(char const*, char const*, std::__va_list)+108) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #06 pc 000000000041cb2c  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::AbortF(char const*, ...) (.__uniq.99033978352804627313491551960229047428)+144) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #07 pc 000000000041dd70  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::Check(art::ScopedObjectAccess&, bool, char const*, art::(anonymous namespace)::JniValueType*) (.__uniq.99033978352804627313491551960229047428)+4632) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #08 pc 00000000006561a8  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::NewStringUTF(_JNIEnv*, char const*) (.__uniq.99033978352804627313491551960229047428.llvm.2767055871950999953)+164) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #09 pc 00000000000db724  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #10 pc 0000000000304ab0  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #11 pc 00000000002e9290  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (SDL_SetWindowTitle+472) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #12 pc 00000000002817d8  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (rt_host_present+420)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #13 pc 000000000027ee34  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (hle_DisplaySetFrameBuf+224)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #14 pc 000000000027e978  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (rt_hle+336)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #15 pc 00000000002e63c0  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0881B94C+360)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #16 pc 00000000008dd2ac  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A25A70+108)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #17 pc 00000000008e0480  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A26F1C+384)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #18 pc 00000000008dcda8  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A258A4+124)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #19 pc 00000000008dea94  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A261A0+1000)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #20 pc 00000000008a2584  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A13524+136)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #21 pc 00000000008dc7fc  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08A25568+1156)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #22 pc 0000000000742f90  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0899AA88+488)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #23 pc 00000000002edc74  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0881E138+332)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #24 pc 00000000002eeaa8  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0881EABC+544)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #25 pc 00000000002ed81c  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0881DFFC+344)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #26 pc 00000000004dbd24  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_088C3798+432)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #27 pc 000000000029f738  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08804000+732)
+10-20 00:54:36.209 25805 25805 F DEBUG   :       #28 pc 00000000002a87d4  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_0880A4D0+336)
+10-20 00:54:36.210 25805 25805 F DEBUG   :       #29 pc 00000000002a8640  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (f_08807CB8+2044)
+10-20 00:54:36.210 25805 25805 F DEBUG   :       #30 pc 000000000028ff88  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (thread_main+24)
+10-20 00:54:36.210 25805 25805 F DEBUG   :       #31 pc 0000000000264dd0  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (fiber_entry+12)
+10-20 00:54:36.210 25805 25805 F DEBUG   :       #32 pc 0000000000264c54  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (rt_fiber_tramp_a64+4)
+10-20 00:54:50.701 25977 26013 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 26013 (SDLThread), pid 25977 (SDLActivity)
+10-20 00:54:50.980 26057 26057 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-20 00:54:50.980 26057 26057 F DEBUG   : Build fingerprint: 'motorola/manila_gn/manila:15/VUOAS35.116-151-3/07db47:user/release-keys'
+10-20 00:54:50.980 26057 26057 F DEBUG   : Revision: '0'
+10-20 00:54:50.980 26057 26057 F DEBUG   : ABI: 'arm64'
+10-20 00:54:50.980 26057 26057 F DEBUG   : Timestamp: 2026-10-20 00:54:50.771702640-0300
+10-20 00:54:50.980 26057 26057 F DEBUG   : Process uptime: 4s
+10-20 00:54:50.980 26057 26057 F DEBUG   : Cmdline: org.gow.shell
+10-20 00:54:50.980 26057 26057 F DEBUG   : pid: 25977, tid: 26013, name: SDLThread  >>> org.gow.shell <<<
+10-20 00:54:50.980 26057 26057 F DEBUG   : uid: 10035
+10-20 00:54:50.980 26057 26057 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+10-20 00:54:50.980 26057 26057 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-20 00:54:50.980 26057 26057 F DEBUG   : Abort message: 'JNI DETECTED ERROR IN APPLICATION: JNI CallStaticVoidMethod called with pending exception java.lang.StackOverflowError: stack size 1037KB
+10-20 00:54:50.980 26057 26057 F DEBUG   :   at int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object) (SDLActivity.java:-2)
+10-20 00:54:50.980 26057 26057 F DEBUG   :   at void org.libsdl.app.SDLActivity.main() (SDLActivity.java:260)
+10-20 00:54:50.980 26057 26057 F DEBUG   :   at void org.libsdl.app.SDLMain.run() (SDLActivity.java:2174)
+10-20 00:54:50.980 26057 26057 F DEBUG   :   at void java.lang.Thread.run() (Thread.java:1571)
+10-20 00:54:50.980 26057 26057 F DEBUG   : 
+10-20 00:54:50.980 26057 26057 F DEBUG   :     in call to CallStaticVoidMethod
+10-20 00:54:50.980 26057 26057 F DEBUG   :     from int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object)'
+10-20 00:54:50.980 26057 26057 F DEBUG   :     x0  0000000000000000  x1  000000000000659d  x2  0000000000000006  x3  0000007242352090
+10-20 00:54:50.980 26057 26057 F DEBUG   :     x4  5151441f43445342  x5  5151441f43445342  x6  5151441f43445342  x7  7f7f7f7f7f7f7f7f
+10-20 00:54:50.980 26057 26057 F DEBUG   :     x8  00000000000000f0  x9  000000758bb213e8  x10 0000000000000001  x11 000000758bb726b0
+10-20 00:54:50.980 26057 26057 F DEBUG   :     x12 0000007242350f20  x13 00000000000002cf  x14 0000007242350f50  x15 0000009efc34f3a2
+10-20 00:54:50.980 26057 26057 F DEBUG   :     x16 000000758bbdcfd0  x17 000000758bbc6180  x18 00000072419e0000  x19 0000000000006579
+10-20 00:54:50.980 26057 26057 F DEBUG   :     x20 000000000000659d  x21 00000000ffffffff  x22 00000072efa0e000  x23 00000072efa0f1b0
+10-20 00:54:50.980 26057 26057 F DEBUG   :     x24 00000072efa0e000  x25 0000000000000000  x26 b400007470656e00  x27 b4000073b0526050
+10-20 00:54:50.980 26057 26057 F DEBUG   :     x28 b4000073b0526050  x29 0000007242352110
+10-20 00:54:50.980 26057 26057 F DEBUG   :     lr  000000758bb5ba18  sp  0000007242352070  pc  000000758bb5ba44  pst 0000000000001000
+10-20 00:54:50.980 26057 26057 F DEBUG   : 44 total frames
+10-20 00:54:50.980 26057 26057 F DEBUG   : backtrace:
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #00 pc 000000000005da44  /apex/com.android.runtime/lib64/bionic/libc.so (abort+164) (BuildId: d741576d5b736d0ff0fa707a16618aac)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #01 pc 0000000000953888  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+616) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #02 pc 0000000000016438  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+84) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #03 pc 0000000000015b78  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+556) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #04 pc 0000000000547dac  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbort(char const*, char const*)+1752) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #05 pc 00000000008871e0  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbortV(char const*, char const*, std::__va_list)+108) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #06 pc 000000000041cb2c  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::AbortF(char const*, ...) (.__uniq.99033978352804627313491551960229047428)+144) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #07 pc 000000000041dd70  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::Check(art::ScopedObjectAccess&, bool, char const*, art::(anonymous namespace)::JniValueType*) (.__uniq.99033978352804627313491551960229047428)+4632) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #08 pc 00000000004179f4  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::CallMethodV(char const*, _JNIEnv*, _jobject*, _jclass*, _jmethodID*, std::__va_list, art::Primitive::Type, art::InvokeType) (.__uniq.99033978352804627313491551960229047428)+256) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #09 pc 000000000088072c  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::CallStaticVoidMethod(_JNIEnv*, _jclass*, _jmethodID*, ...) (.__uniq.99033978352804627313491551960229047428.llvm.2767055871950999953)+156) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #10 pc 00000000000dd0a4  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #11 pc 000000000014dac4  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #12 pc 0000000000148794  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (SDL_UpdateJoysticks+764) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #13 pc 00000000000e7a00  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #14 pc 00000000000e7ad8  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #15 pc 00000000000e7c24  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #16 pc 00000000000e7b8c  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (SDL_PollEvent+24) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #17 pc 0000000000280a6c  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (pump+40)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #18 pc 0000000000281c10  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (rt_host_idle+316)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #19 pc 00000000002903d0  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (k_run_scheduler+972)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #20 pc 00000000002858e8  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (gow_main+2868)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #21 pc 0000000000b7abb0  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libmain.so (SDL_main+160)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #22 pc 00000000001948b4  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #23 pc 0000000000194a0c  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (SDL_RunApp+40) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #24 pc 00000000000d9c3c  /data/app/~~9Hd-LgIiIzt83g2nOWSvPQ==/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #25 pc 0000000000288270  /apex/com.android.art/lib64/libart.so (art_quick_generic_jni_trampoline+144) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #26 pc 0000000000270fc0  /apex/com.android.art/lib64/libart.so (art_quick_invoke_static_stub+640) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #27 pc 00000000006a47c0  /apex/com.android.art/lib64/libart.so (bool art::interpreter::DoCall<false>(art::ArtMethod*, art::Thread*, art::ShadowFrame&, art::Instruction const*, unsigned short, bool, art::JValue*)+2484) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #28 pc 00000000004a1b2c  /apex/com.android.art/lib64/libart.so (void art::interpreter::ExecuteSwitchImplCpp<false>(art::interpreter::SwitchImplContext*)+684) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #29 pc 00000000004b2178  /apex/com.android.art/lib64/libart.so (ExecuteSwitchImplAsm+8) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.980 26057 26057 F DEBUG   :       #30 pc 000000000000a9dc  [anon:dalvik-classes2.dex extract...=/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/base.apk] (org.libsdl.app.SDLActivity.main+0)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #31 pc 00000000006a477c  /apex/com.android.art/lib64/libart.so (bool art::interpreter::DoCall<false>(art::ArtMethod*, art::Thread*, art::ShadowFrame&, art::Instruction const*, unsigned short, bool, art::JValue*)+2416) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #32 pc 00000000004a1b2c  /apex/com.android.art/lib64/libart.so (void art::interpreter::ExecuteSwitchImplCpp<false>(art::interpreter::SwitchImplContext*)+684) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #33 pc 00000000004b2178  /apex/com.android.art/lib64/libart.so (ExecuteSwitchImplAsm+8) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #34 pc 000000000000d9a0  [anon:dalvik-classes2.dex extract...=/org.gow.shell-a24wqpLEM8wfSgfYB-Oq1Q==/base.apk] (org.libsdl.app.SDLMain.run+0)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #35 pc 00000000004b1584  /apex/com.android.art/lib64/libart.so (artQuickToInterpreterBridge+1216) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #36 pc 00000000002883a8  /apex/com.android.art/lib64/libart.so (art_quick_to_interpreter_bridge+88) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #37 pc 00000000020049ec  /memfd:jit-cache (deleted) (offset 0x2000000) (java.lang.Thread.run+140)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #38 pc 0000000000270cf4  /apex/com.android.art/lib64/libart.so (art_quick_invoke_stub+612) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #39 pc 000000000023ba68  /apex/com.android.art/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+224) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #40 pc 000000000055c204  /apex/com.android.art/lib64/libart.so (art::Thread::CreateCallback(void*)+1400) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #41 pc 000000000055bc78  /apex/com.android.art/lib64/libart.so (art::Thread::CreateCallbackWithUffdGc(void*)+12) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #42 pc 000000000006f6d8  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+200) (BuildId: d741576d5b736d0ff0fa707a16618aac)
+10-20 00:54:50.981 26057 26057 F DEBUG   :       #43 pc 0000000000060dc0  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+64) (BuildId: d741576d5b736d0ff0fa707a16618aac)
+10-20 00:57:01.749 29246 29278 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 29278 (SDLThread), pid 29246 (SDLActivity)
+10-20 00:57:02.337 29303 29303 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-20 00:57:02.337 29303 29303 F DEBUG   : Build fingerprint: 'motorola/manila_gn/manila:15/VUOAS35.116-151-3/07db47:user/release-keys'
+10-20 00:57:02.337 29303 29303 F DEBUG   : Revision: '0'
+10-20 00:57:02.337 29303 29303 F DEBUG   : ABI: 'arm64'
+10-20 00:57:02.337 29303 29303 F DEBUG   : Timestamp: 2026-10-20 00:57:01.847952700-0300
+10-20 00:57:02.337 29303 29303 F DEBUG   : Process uptime: 4s
+10-20 00:57:02.337 29303 29303 F DEBUG   : Cmdline: org.gow.shell
+10-20 00:57:02.337 29303 29303 F DEBUG   : pid: 29246, tid: 29278, name: SDLThread  >>> org.gow.shell <<<
+10-20 00:57:02.337 29303 29303 F DEBUG   : uid: 10035
+10-20 00:57:02.337 29303 29303 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+10-20 00:57:02.337 29303 29303 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-20 00:57:02.337 29303 29303 F DEBUG   : Abort message: 'JNI DETECTED ERROR IN APPLICATION: JNI NewStringUTF called with pending exception java.lang.StackOverflowError: stack size 1037KB
+10-20 00:57:02.337 29303 29303 F DEBUG   :   at int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object) (SDLActivity.java:-2)
+10-20 00:57:02.337 29303 29303 F DEBUG   :   at void org.libsdl.app.SDLActivity.main() (SDLActivity.java:260)
+10-20 00:57:02.337 29303 29303 F DEBUG   :   at void org.libsdl.app.SDLMain.run() (SDLActivity.java:2174)
+10-20 00:57:02.337 29303 29303 F DEBUG   :   at void java.lang.Thread.run() (Thread.java:1571)
+10-20 00:57:02.337 29303 29303 F DEBUG   : 
+10-20 00:57:02.337 29303 29303 F DEBUG   :     in call to NewStringUTF
+10-20 00:57:02.337 29303 29303 F DEBUG   :     from int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object)'
+10-20 00:57:02.337 29303 29303 F DEBUG   :     x0  0000000000000000  x1  000000000000725e  x2  0000000000000006  x3  000000718ffff0d0
+10-20 00:57:02.337 29303 29303 F DEBUG   :     x4  5151441f43445342  x5  5151441f43445342  x6  5151441f43445342  x7  7f7f7f7f7f7f7f7f
+10-20 00:57:02.337 29303 29303 F DEBUG   :     x8  00000000000000f0  x9  000000758bb213e8  x10 0000000000000001  x11 000000758bb726b0
+10-20 00:57:02.337 29303 29303 F DEBUG   :     x12 000000718fffdf60  x13 00000000000002bf  x14 000000718fffdf90  x15 0000009fc74b9f8b
+10-20 00:57:02.337 29303 29303 F DEBUG   :     x16 000000758bbdcfd0  x17 000000758bbc6180  x18 0000007247de4000  x19 000000000000723e
+10-20 00:57:02.337 29303 29303 F DEBUG   :     x20 000000000000725e  x21 00000000ffffffff  x22 00000072efa0e000  x23 00000072efa0f1b0
+10-20 00:57:02.337 29303 29303 F DEBUG   :     x24 00000072efa0e000  x25 0000000000000000  x26 b400007470656e00  x27 b4000073b0525630
+10-20 00:57:02.337 29303 29303 F DEBUG   :     x28 b4000073b0525630  x29 000000718ffff150
+10-20 00:57:02.337 29303 29303 F DEBUG   :     lr  000000758bb5ba18  sp  000000718ffff0b0  pc  000000758bb5ba44  pst 0000000000001000
+10-20 00:57:02.337 29303 29303 F DEBUG   : 33 total frames
+10-20 00:57:02.337 29303 29303 F DEBUG   : backtrace:
+10-20 00:57:02.337 29303 29303 F DEBUG   :       #00 pc 000000000005da44  /apex/com.android.runtime/lib64/bionic/libc.so (abort+164) (BuildId: d741576d5b736d0ff0fa707a16618aac)
+10-20 00:57:02.337 29303 29303 F DEBUG   :       #01 pc 0000000000953888  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+616) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #02 pc 0000000000016438  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+84) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #03 pc 0000000000015b78  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+556) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #04 pc 0000000000547dac  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbort(char const*, char const*)+1752) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #05 pc 00000000008871e0  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbortV(char const*, char const*, std::__va_list)+108) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #06 pc 000000000041cb2c  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::AbortF(char const*, ...) (.__uniq.99033978352804627313491551960229047428)+144) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #07 pc 000000000041dd70  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::Check(art::ScopedObjectAccess&, bool, char const*, art::(anonymous namespace)::JniValueType*) (.__uniq.99033978352804627313491551960229047428)+4632) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #08 pc 00000000006561a8  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::NewStringUTF(_JNIEnv*, char const*) (.__uniq.99033978352804627313491551960229047428.llvm.2767055871950999953)+164) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #09 pc 00000000000db724  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #10 pc 0000000000304ab0  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #11 pc 00000000002e9290  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (SDL_SetWindowTitle+472) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #12 pc 0000000000281868  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_host_present+420)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #13 pc 000000000027eec4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (hle_DisplaySetFrameBuf+224)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #14 pc 000000000027ea08  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_hle+336)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #15 pc 00000000002e6450  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881B94C+360)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #16 pc 00000000008dd33c  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A25A70+108)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #17 pc 00000000008e0510  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A26F1C+384)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #18 pc 00000000008dce38  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A258A4+124)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #19 pc 00000000008deb24  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A261A0+1000)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #20 pc 00000000008a2614  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A13524+136)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #21 pc 00000000008dc88c  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A25568+1156)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #22 pc 0000000000743020  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0899AA88+488)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #23 pc 00000000002edd04  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881E138+332)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #24 pc 00000000002eeb38  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881EABC+544)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #25 pc 00000000002ed8ac  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881DFFC+344)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #26 pc 00000000004dbdb4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_088C3798+432)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #27 pc 000000000029f7c8  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08804000+732)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #28 pc 00000000002a8864  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0880A4D0+336)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #29 pc 00000000002a86d0  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08807CB8+2044)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #30 pc 0000000000290018  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (thread_main+24)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #31 pc 0000000000264e60  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (fiber_entry+12)
+10-20 00:57:02.338 29303 29303 F DEBUG   :       #32 pc 0000000000264ce4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_fiber_tramp_a64+4)
+10-20 00:59:13.733 31607 31650 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 31650 (SDLThread), pid 31607 (SDLActivity)
+10-20 00:59:14.274 31695 31695 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-20 00:59:14.274 31695 31695 F DEBUG   : Build fingerprint: 'motorola/manila_gn/manila:15/VUOAS35.116-151-3/07db47:user/release-keys'
+10-20 00:59:14.274 31695 31695 F DEBUG   : Revision: '0'
+10-20 00:59:14.274 31695 31695 F DEBUG   : ABI: 'arm64'
+10-20 00:59:14.274 31695 31695 F DEBUG   : Timestamp: 2026-10-20 00:59:13.829268836-0300
+10-20 00:59:14.274 31695 31695 F DEBUG   : Process uptime: 4s
+10-20 00:59:14.274 31695 31695 F DEBUG   : Cmdline: org.gow.shell
+10-20 00:59:14.274 31695 31695 F DEBUG   : pid: 31607, tid: 31650, name: SDLThread  >>> org.gow.shell <<<
+10-20 00:59:14.274 31695 31695 F DEBUG   : uid: 10035
+10-20 00:59:14.274 31695 31695 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+10-20 00:59:14.274 31695 31695 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-20 00:59:14.274 31695 31695 F DEBUG   : Abort message: 'JNI DETECTED ERROR IN APPLICATION: JNI NewStringUTF called with pending exception java.lang.StackOverflowError: stack size 1037KB
+10-20 00:59:14.274 31695 31695 F DEBUG   :   at int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object) (SDLActivity.java:-2)
+10-20 00:59:14.274 31695 31695 F DEBUG   :   at void org.libsdl.app.SDLActivity.main() (SDLActivity.java:260)
+10-20 00:59:14.274 31695 31695 F DEBUG   :   at void org.libsdl.app.SDLMain.run() (SDLActivity.java:2174)
+10-20 00:59:14.274 31695 31695 F DEBUG   :   at void java.lang.Thread.run() (Thread.java:1571)
+10-20 00:59:14.274 31695 31695 F DEBUG   : 
+10-20 00:59:14.274 31695 31695 F DEBUG   :     in call to NewStringUTF
+10-20 00:59:14.274 31695 31695 F DEBUG   :     from int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object)'
+10-20 00:59:14.274 31695 31695 F DEBUG   :     x0  0000000000000000  x1  0000000000007ba2  x2  0000000000000006  x3  00000071888110d0
+10-20 00:59:14.274 31695 31695 F DEBUG   :     x4  5151441f43445342  x5  5151441f43445342  x6  5151441f43445342  x7  7f7f7f7f7f7f7f7f
+10-20 00:59:14.274 31695 31695 F DEBUG   :     x8  00000000000000f0  x9  000000758bb213e8  x10 0000000000000001  x11 000000758bb726b0
+10-20 00:59:14.274 31695 31695 F DEBUG   :     x12 000000718880ff60  x13 00000000000002bf  x14 000000718880ff90  x15 000000a093d51c4c
+10-20 00:59:14.274 31695 31695 F DEBUG   :     x16 000000758bbdcfd0  x17 000000758bbc6180  x18 0000007240624000  x19 0000000000007b77
+10-20 00:59:14.274 31695 31695 F DEBUG   :     x20 0000000000007ba2  x21 00000000ffffffff  x22 00000072efa0e000  x23 00000072efa0f1b0
+10-20 00:59:14.274 31695 31695 F DEBUG   :     x24 00000072efa0e000  x25 0000000000000000  x26 b400007470656e00  x27 b4000073b0525630
+10-20 00:59:14.274 31695 31695 F DEBUG   :     x28 b4000073b0525630  x29 0000007188811150
+10-20 00:59:14.274 31695 31695 F DEBUG   :     lr  000000758bb5ba18  sp  00000071888110b0  pc  000000758bb5ba44  pst 0000000000001000
+10-20 00:59:14.274 31695 31695 F DEBUG   : 33 total frames
+10-20 00:59:14.274 31695 31695 F DEBUG   : backtrace:
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #00 pc 000000000005da44  /apex/com.android.runtime/lib64/bionic/libc.so (abort+164) (BuildId: d741576d5b736d0ff0fa707a16618aac)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #01 pc 0000000000953888  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+616) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #02 pc 0000000000016438  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+84) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #03 pc 0000000000015b78  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+556) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #04 pc 0000000000547dac  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbort(char const*, char const*)+1752) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #05 pc 00000000008871e0  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbortV(char const*, char const*, std::__va_list)+108) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #06 pc 000000000041cb2c  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::AbortF(char const*, ...) (.__uniq.99033978352804627313491551960229047428)+144) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #07 pc 000000000041dd70  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::Check(art::ScopedObjectAccess&, bool, char const*, art::(anonymous namespace)::JniValueType*) (.__uniq.99033978352804627313491551960229047428)+4632) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #08 pc 00000000006561a8  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::NewStringUTF(_JNIEnv*, char const*) (.__uniq.99033978352804627313491551960229047428.llvm.2767055871950999953)+164) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #09 pc 00000000000db724  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #10 pc 0000000000304ab0  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #11 pc 00000000002e9290  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (SDL_SetWindowTitle+472) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #12 pc 0000000000281868  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_host_present+420)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #13 pc 000000000027eec4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (hle_DisplaySetFrameBuf+224)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #14 pc 000000000027ea08  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_hle+336)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #15 pc 00000000002e6450  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881B94C+360)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #16 pc 00000000008dd33c  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A25A70+108)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #17 pc 00000000008e0510  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A26F1C+384)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #18 pc 00000000008dce38  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A258A4+124)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #19 pc 00000000008deb24  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A261A0+1000)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #20 pc 00000000008a2614  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A13524+136)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #21 pc 00000000008dc88c  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A25568+1156)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #22 pc 0000000000743020  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0899AA88+488)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #23 pc 00000000002edd04  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881E138+332)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #24 pc 00000000002eeb38  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881EABC+544)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #25 pc 00000000002ed8ac  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881DFFC+344)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #26 pc 00000000004dbdb4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_088C3798+432)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #27 pc 000000000029f7c8  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08804000+732)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #28 pc 00000000002a8864  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0880A4D0+336)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #29 pc 00000000002a86d0  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08807CB8+2044)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #30 pc 0000000000290018  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (thread_main+24)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #31 pc 0000000000264e60  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (fiber_entry+12)
+10-20 00:59:14.274 31695 31695 F DEBUG   :       #32 pc 0000000000264ce4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_fiber_tramp_a64+4)
+10-20 00:59:19.465 31715 31748 F libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 31748 (SDLThread), pid 31715 (SDLActivity)
+10-20 00:59:19.755 31904 31904 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+10-20 00:59:19.755 31904 31904 F DEBUG   : Build fingerprint: 'motorola/manila_gn/manila:15/VUOAS35.116-151-3/07db47:user/release-keys'
+10-20 00:59:19.755 31904 31904 F DEBUG   : Revision: '0'
+10-20 00:59:19.755 31904 31904 F DEBUG   : ABI: 'arm64'
+10-20 00:59:19.755 31904 31904 F DEBUG   : Timestamp: 2026-10-20 00:59:19.536023409-0300
+10-20 00:59:19.755 31904 31904 F DEBUG   : Process uptime: 5s
+10-20 00:59:19.755 31904 31904 F DEBUG   : Cmdline: org.gow.shell
+10-20 00:59:19.755 31904 31904 F DEBUG   : pid: 31715, tid: 31748, name: SDLThread  >>> org.gow.shell <<<
+10-20 00:59:19.755 31904 31904 F DEBUG   : uid: 10035
+10-20 00:59:19.755 31904 31904 F DEBUG   : tagged_addr_ctrl: 0000000000000001 (PR_TAGGED_ADDR_ENABLE)
+10-20 00:59:19.755 31904 31904 F DEBUG   : signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+10-20 00:59:19.755 31904 31904 F DEBUG   : Abort message: 'JNI DETECTED ERROR IN APPLICATION: JNI CallStaticVoidMethod called with pending exception java.lang.StackOverflowError: stack size 1037KB
+10-20 00:59:19.755 31904 31904 F DEBUG   :   at int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object) (SDLActivity.java:-2)
+10-20 00:59:19.755 31904 31904 F DEBUG   :   at void org.libsdl.app.SDLActivity.main() (SDLActivity.java:260)
+10-20 00:59:19.755 31904 31904 F DEBUG   :   at void org.libsdl.app.SDLMain.run() (SDLActivity.java:2174)
+10-20 00:59:19.755 31904 31904 F DEBUG   :   at void java.lang.Thread.run() (Thread.java:1571)
+10-20 00:59:19.755 31904 31904 F DEBUG   : 
+10-20 00:59:19.755 31904 31904 F DEBUG   :     in call to CallStaticVoidMethod
+10-20 00:59:19.755 31904 31904 F DEBUG   :     from int org.libsdl.app.SDLActivity.nativeRunMain(java.lang.String, java.lang.String, java.lang.Object)'
+10-20 00:59:19.755 31904 31904 F DEBUG   :     x0  0000000000000000  x1  0000000000007c04  x2  0000000000000006  x3  000000718d180600
+10-20 00:59:19.755 31904 31904 F DEBUG   :     x4  5151441f43445342  x5  5151441f43445342  x6  5151441f43445342  x7  7f7f7f7f7f7f7f7f
+10-20 00:59:19.755 31904 31904 F DEBUG   :     x8  00000000000000f0  x9  000000758bb213e8  x10 0000000000000001  x11 000000758bb726b0
+10-20 00:59:19.755 31904 31904 F DEBUG   :     x12 000000718d17f490  x13 00000000000002cf  x14 000000718d17f4c0  x15 000000a09cb78add
+10-20 00:59:19.755 31904 31904 F DEBUG   :     x16 000000758bbdcfd0  x17 000000758bbc6180  x18 0000007243a14000  x19 0000000000007be3
+10-20 00:59:19.755 31904 31904 F DEBUG   :     x20 0000000000007c04  x21 00000000ffffffff  x22 00000072efa0e000  x23 00000072efa0f1b0
+10-20 00:59:19.755 31904 31904 F DEBUG   :     x24 00000072efa0e000  x25 0000000000000000  x26 b400007470656e00  x27 b4000073b0526dd0
+10-20 00:59:19.755 31904 31904 F DEBUG   :     x28 b4000073b0526dd0  x29 000000718d180680
+10-20 00:59:19.755 31904 31904 F DEBUG   :     lr  000000758bb5ba18  sp  000000718d1805e0  pc  000000758bb5ba44  pst 0000000000001000
+10-20 00:59:19.755 31904 31904 F DEBUG   : 39 total frames
+10-20 00:59:19.755 31904 31904 F DEBUG   : backtrace:
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #00 pc 000000000005da44  /apex/com.android.runtime/lib64/bionic/libc.so (abort+164) (BuildId: d741576d5b736d0ff0fa707a16618aac)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #01 pc 0000000000953888  /apex/com.android.art/lib64/libart.so (art::Runtime::Abort(char const*)+616) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #02 pc 0000000000016438  /apex/com.android.art/lib64/libbase.so (android::base::SetAborter(std::__1::function<void (char const*)>&&)::$_0::__invoke(char const*)+84) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #03 pc 0000000000015b78  /apex/com.android.art/lib64/libbase.so (android::base::LogMessage::~LogMessage()+556) (BuildId: 7dc1c498b08b3374928e8d043f574325)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #04 pc 0000000000547dac  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbort(char const*, char const*)+1752) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #05 pc 00000000008871e0  /apex/com.android.art/lib64/libart.so (art::JavaVMExt::JniAbortV(char const*, char const*, std::__va_list)+108) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #06 pc 000000000041cb2c  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::AbortF(char const*, ...) (.__uniq.99033978352804627313491551960229047428)+144) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #07 pc 000000000041dd70  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::ScopedCheck::Check(art::ScopedObjectAccess&, bool, char const*, art::(anonymous namespace)::JniValueType*) (.__uniq.99033978352804627313491551960229047428)+4632) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #08 pc 00000000004179f4  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::CallMethodV(char const*, _JNIEnv*, _jobject*, _jclass*, _jmethodID*, std::__va_list, art::Primitive::Type, art::InvokeType) (.__uniq.99033978352804627313491551960229047428)+256) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #09 pc 000000000088072c  /apex/com.android.art/lib64/libart.so (art::(anonymous namespace)::CheckJNI::CallStaticVoidMethod(_JNIEnv*, _jclass*, _jmethodID*, ...) (.__uniq.99033978352804627313491551960229047428.llvm.2767055871950999953)+156) (BuildId: a47994c420371ffbd05d16fc9a15ac9f)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #10 pc 00000000000dd0a4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #11 pc 000000000014dac4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #12 pc 0000000000148794  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (SDL_UpdateJoysticks+764) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #13 pc 00000000000e7a00  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #14 pc 00000000000e7ad8  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #15 pc 00000000000e7c24  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #16 pc 00000000000e7b8c  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libSDL3.so (SDL_PollEvent+24) (BuildId: 48f695015f980c7fabdab26f71e3c5d29194ea33)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #17 pc 0000000000280afc  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (pump+40)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #18 pc 00000000002817e0  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_host_present+284)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #19 pc 000000000027eec4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (hle_DisplaySetFrameBuf+224)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #20 pc 000000000027ea08  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_hle+336)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #21 pc 00000000002e6450  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881B94C+360)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #22 pc 00000000008dd33c  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A25A70+108)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #23 pc 00000000008e0510  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A26F1C+384)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #24 pc 00000000008dce38  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A258A4+124)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #25 pc 00000000008deb24  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A261A0+1000)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #26 pc 00000000008a2614  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A13524+136)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #27 pc 00000000008dc88c  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08A25568+1156)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #28 pc 0000000000743020  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0899AA88+488)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #29 pc 00000000002edd04  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881E138+332)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #30 pc 00000000002eeb38  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881EABC+544)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #31 pc 00000000002ed8ac  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0881DFFC+344)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #32 pc 00000000004dbdb4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_088C3798+432)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #33 pc 000000000029f7c8  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08804000+732)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #34 pc 00000000002a8864  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_0880A4D0+336)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #35 pc 00000000002a86d0  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (f_08807CB8+2044)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #36 pc 0000000000290018  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (thread_main+24)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #37 pc 0000000000264e60  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (fiber_entry+12)
+10-20 00:59:19.755 31904 31904 F DEBUG   :       #38 pc 0000000000264ce4  /data/app/~~Ru98c_W5VjKawDJYicCBHw==/org.gow.shell-V91gduLTU-hvOX9ktK38rA==/lib/arm64/libmain.so (rt_fiber_tramp_a64+4)
