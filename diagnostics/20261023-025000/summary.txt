@@ -1,0 +1,12 @@
+Data UTC: 20261023-025000
+Android: 15
+Modelo: moto g35 5G
+
+== Estado do projeto ==
+?? gow-psp-recomp-android/
+
+== Configuração SDL/GPU ==
+GAME:STRING=UCUS98653_full
+GOW_ANDROID:BOOL=ON
+GOW_SDL_SO:FILEPATH=/data/data/com.termux/files/home/sdlpack/libSDL3.so
+GOW_WINDOW:BOOL=ON

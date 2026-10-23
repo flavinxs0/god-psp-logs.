@@ -1,0 +1,1 @@
+ADB sem dispositivo conectado; logcat atual não coletado.
